@@ -1,5 +1,7 @@
 package com.study.book;
 
+import org.graalvm.compiler.api.replacements.ClassSubstitution;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,4 +18,13 @@ public class Order {
     @Column(name="state")
     @Enumerated(EnumType.STRING)
     private OrderState state;
+
+    @Column(name ="total_amounts")
+    private Money totalAmounts; // MoneyConverter를 적용해서 값 변환
+//
+//    @Column(name="total_amounts")
+//    @Convert(converter = MoneyConverter.class)
+//    private Money totalAmounts;
+
+
 }
